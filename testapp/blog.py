@@ -11,7 +11,7 @@ bp = Blueprint('blog',__name__)
 
 @bp.route('/')
 def index():
-    # show all posts
+    # show all posts, descending, so recent first
     db = get_db()
     posts = db.execute(
         'SELECT p.id, title, body, created, author_id, username'
@@ -95,7 +95,7 @@ def update(id):
 
     return render_template('blog/update.html', post=post)
 
-@bp.route('<int:id>/delete',methods = ('POST',))
+@bp.route('/<int:id>/delete',methods = ('POST',))
 @login_required
 def delete(id):
     """
