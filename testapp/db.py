@@ -40,7 +40,7 @@ def init_db():
 def init_db_command():
     # re-initialize db
     init_db()
-    click.echo('Initialized DB!')
+    click.echo('initialized db')
     pass
 
 # register application 

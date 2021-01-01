@@ -1,5 +1,5 @@
 import pytest
-from testapp import g, session
+from flask import g, session
 from testapp.db import get_db
 
 def test_register(client, app):
@@ -8,7 +8,7 @@ def test_register(client, app):
     response = client.post(
         '/auth/register', data={
             'username':'a',
-            'passwprd':'a'
+            'password':'a'
         }
     )
 
@@ -20,10 +20,10 @@ def test_register(client, app):
         ).fetchone() is not None
 
 # run the func multiple times with diff args
-@pytest.mark.parameterize(('username','password','message'),
-(('','',b'Username is required.'),
-('a','',b'Password is required.'),
-('test', 'test', b'already reg'),
+@pytest.mark.parametrize(('username','password','message'),
+(('','',b'need a username'),
+('a','',b'need a password'),
+('test', 'test', b'already registered'),
 ))
 def test_register_validate_input(client,username,password,message):
     # test post req
@@ -50,8 +50,8 @@ def test_login(client, auth):
 
 
 @pytest.mark.parametrize(('username', 'password', 'message'), (
-    ('a', 'test', b'Incorrect username.'),
-    ('test', 'a', b'Incorrect password.'),
+    ('a', 'test', b'incorrect username'),
+    ('test', 'a', b'incorrect password'),
 ))
 
 def test_login_validate_input(auth,username,password,message):

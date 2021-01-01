@@ -1,6 +1,6 @@
 import sqlite3
 import pytest
-from testapp import get_db
+from testapp.db import get_db
 
 def test_get_close_db(app):
     # should return same connection each time in app context
@@ -28,8 +28,8 @@ def test_init_db_command(runner, monkeypatch):
     
     monkeypatch.setattr('testapp.db.init_db',fake_init_db)
     result = runner.invoke(args=['init-db'])
-    assert 'initialized' in result.output
-    assert Record.called
+    assert 'initialized db' in result.output
+    assert Recorder.called
 
 
 
