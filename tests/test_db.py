@@ -9,7 +9,7 @@ def test_get_close_db(app):
         assert db is get_db()
 
     with pytest.raises(sqlite3.ProgrammingError) as e:
-        db.execute('SELEct 1')
+        db.execute('SELECt 1')
 
     assert 'closed' in str(e.value)
 

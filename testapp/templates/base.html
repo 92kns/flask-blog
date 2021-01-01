@@ -1,15 +1,15 @@
 <!doctype html>
-<title>{% block title%}{% endblock %} - blog.</title>
+<title>{% block title %}{% endblock %} - blog</title>
 <link rel="stylesheet" href="{{ url_for('static',filename = 'style.css') }}">
 <nav>
-    <h1>blog.</h1>
+    <h1><a href="{{ url_for('index') }}">blog.</a></h1>
     <u1>
         {% if g.user %}
             <li><span>{{ g.user['username']}}</span>
-            <li><a href="{{ url_for('auth.logout')}}">log out</a>
+            <li><a href="{{ url_for('auth.logout') }}">log out</a>
         {% else %}
-            <li><a href="{{ url_for('auth.register')}}">register</a>
-            <li><a href="{{ url_for('auth.login')}}">log in</a>
+            <li><a href="{{ url_for('auth.register') }}">register</a>
+            <li><a href="{{ url_for('auth.login') }}">log in</a>
         {% endif %}
     </u1>
 </nav>
