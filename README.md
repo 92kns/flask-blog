@@ -13,6 +13,7 @@ docker run -p 5000:5000 flaskapp
 
 At the moment it is using development server because well you're running it locally and not in production. Stay tuned!
 
+### Example pics
 
 main index page where you can look at existing blog entries! Edit/Delete your own!
 
