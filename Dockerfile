@@ -11,9 +11,9 @@
 
 # RUN pip3 --no-cache-dir install -r requirements.txt
 
-FROM python:3.8-slim-buster
+from python:3.8-slim-buster
 ENV FLASK_APP=testapp
-RUN mkdir /app
+WORKDIR /app
 COPY requirements.txt /app
 RUN pip install -r /app/requirements.txt
 COPY . /app
