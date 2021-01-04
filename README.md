@@ -1,8 +1,10 @@
 # flask-blog
 Simple CRUD Flask app based off of the quickstart/tutorial from Flask. This has been taken a bit further by Dockerizing it.
-If for some reason someone is reading this here is how you can immediately start playing with the web app on [localhost:5000](localhost:5000) . Clone the repo and run the following in a terminal
+If for some reason someone is reading this here is how you can immediately start playing with the web app on [localhost:5000](http://localhost:5000/) . Clone the repo and run the following in a terminal
 
-```docker-compose up```
+```sh
+docker-compose up
+```
 
 then go to the localhost above or whatever one you may have modified it to
 
