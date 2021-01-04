@@ -2,6 +2,8 @@
 #  slim buster is better apparently
 from python:3.8-slim-buster
 ENV FLASK_APP=testapp
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=5000
 
 
 WORKDIR /app
@@ -15,4 +17,5 @@ COPY . /app
 EXPOSE 5000
 
 RUN flask init-db
-CMD ["flask","run","--host=0.0.0.0"]
+# CMD ["flask","run","--host=0.0.0.0"]
+CMD ["flask","run"]
