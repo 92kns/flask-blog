@@ -8,7 +8,7 @@ docker-compose up
 
 then go to the localhost above or whatever one you may have modified it to
 
-At the moment it is using development server because well you're running it locally and not in production. Stay tuned!
+At the moment it is using development server but that will change when I get around to hosting it... at which point I am thinking of making this a mini-tutorial/extension! 
 
 ### Example pics
 
