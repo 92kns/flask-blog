@@ -27,7 +27,7 @@ def create_app(test_config=None):
     # dev page
     @app.route('/ok')
     def ok():
-        return 'ok'
+        return 'cakey'
 
 
     # for app registration
