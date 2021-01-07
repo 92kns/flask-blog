@@ -13,16 +13,19 @@ RUN pip install -r /app/requirements.txt
 
 COPY . /app
 
-#  default port is 5000
-# ENV FLASK_RUN_PORT=8000
+#  default port is 5000 on my local pc
+#  default is 8080 on GCP, let's just use that
 EXPOSE 8080
 ENV PORT 8080
 
+# no need to have a seperate container for DB for this small app. 
+# hence the docker-compose.yml likewise doesn't have another DB service
 RUN flask init-db
-# debugging/dev server
+
+# for debugging/dev server------------
 # CMD ["flask","run","--host=0.0.0.0"]
 
-# for light weight production server
+# for light weight production server. currently used on GCP---------------
 RUN pip install waitress
 CMD waitress-serve --call 'testapp:create_app'
 
