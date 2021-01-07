@@ -19,6 +19,7 @@ EXPOSE 8080
 ENV PORT 8080
 
 RUN flask init-db
+# debugging/dev server
 # CMD ["flask","run","--host=0.0.0.0"]
 
 # for light weight production server
