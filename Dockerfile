@@ -10,6 +10,7 @@ WORKDIR /app
 
 COPY requirements.txt /app
 RUN pip install -r /app/requirements.txt
+
 COPY . /app
 
 #  default port is 5000
@@ -18,11 +19,9 @@ EXPOSE 8080
 ENV PORT 8080
 
 RUN flask init-db
-CMD ["flask","run","--host=0.0.0.0"]
+# CMD ["flask","run","--host=0.0.0.0"]
 
-# production ready server 
-# might switch it up to Waitress package as it is light-weight
-# RUN pip install Flask gunicorn
+# for light weight production server
+RUN pip install waitress
+CMD waitress-serve --call 'testapp:create_app'
 
-# # gunicorn server one worker process and 8 threads.
-# CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
